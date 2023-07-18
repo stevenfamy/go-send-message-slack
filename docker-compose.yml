@@ -1,0 +1,19 @@
+version: "3.3"
+
+services:
+  slackbot-release:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: grip/slackbot-message:latest
+    container_name: slackbot-message
+    restart: unless-stopped
+    environment:
+      - DOPPLER_TOKEN=${DOPPLER_TOKEN_AUTH}
+    networks:
+      - logistics-staging
+    # env_file:
+    #   - .env
+networks:
+  logistics-staging:
+    external: true
