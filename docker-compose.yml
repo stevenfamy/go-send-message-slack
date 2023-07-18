@@ -8,6 +8,8 @@ services:
     image: grip/slackbot-message:latest
     container_name: slackbot-message
     restart: unless-stopped
+    ports:
+      - 8080:8080
     environment:
       - DOPPLER_TOKEN=${DOPPLER_TOKEN_AUTH}
     networks:
